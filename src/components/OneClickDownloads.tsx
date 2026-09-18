@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, FileCode, Eye, Check, Sparkles, Terminal, Shield, Clock, ExternalLink } from 'lucide-react';
+import { Download, FileCode, Eye, Check, Sparkles, Terminal, Shield, Clock, ExternalLink, Github } from 'lucide-react';
 import { WingetConfig } from '../types';
 import {
   generateBatchScript,
@@ -48,7 +48,7 @@ export const OneClickDownloads: React.FC<OneClickDownloadsProps> = ({ config }) 
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <span>Soluções Prontas para 1-Clique</span>
@@ -60,6 +60,14 @@ export const OneClickDownloads: React.FC<OneClickDownloadsProps> = ({ config }) 
             Escolha o método preferido para manter o Windows 11 atualizado com apenas 1 clique
           </p>
         </div>
+
+        <button
+          onClick={() => document.getElementById('github-section')?.scrollIntoView({ behavior: 'smooth' })}
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition-colors shadow-xs"
+        >
+          <Github className="w-4 h-4 text-slate-900 dark:text-white" />
+          <span>Ou execute direto via GitHub</span>
+        </button>
       </div>
 
       {/* Grid of 1-Click Cards */}

@@ -108,8 +108,8 @@ export default function App() {
         </section>
 
         {/* Tips & Advanced FAQ */}
-        <section>
-          <TipsGuide />
+        <section id="github-section">
+          <TipsGuide config={config} />
         </section>
 
         {/* Footer */}

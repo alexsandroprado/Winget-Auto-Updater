@@ -1,11 +1,18 @@
 import React from 'react';
-import { ShieldCheck, Sparkles, Terminal, Laptop } from 'lucide-react';
+import { ShieldCheck, Sparkles, Terminal, Laptop, Github } from 'lucide-react';
 
 interface HeaderProps {
   onOpenSettings?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = () => {
+  const scrollToGitHub = () => {
+    const el = document.getElementById('github-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="border-b border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md sticky top-0 z-30 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -35,14 +42,22 @@ export const Header: React.FC<HeaderProps> = () => {
           </div>
         </div>
 
-        {/* Status badges */}
-        <div className="hidden sm:flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 px-3 py-1.5 rounded-full font-medium">
+        {/* Status badges & GitHub Action */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={scrollToGitHub}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white shadow-xs transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>Via GitHub</span>
+          </button>
+
+          <div className="hidden md:flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 px-3 py-1.5 rounded-full font-medium">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Zero Interrupções</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-full">
+          <div className="hidden lg:flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-full">
             <Terminal className="w-3.5 h-3.5 text-blue-500" />
             <span className="font-mono text-[11px]">winget upgrade --all</span>
           </div>
