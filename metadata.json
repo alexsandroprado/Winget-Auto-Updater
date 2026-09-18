@@ -1,0 +1,6 @@
+{
+  "name": "Winget Win11 Auto-Updater",
+  "description": "Aplicativo para manter o Windows 11 sempre atualizado com 1 clique usando winget em modo 100% silencioso e automatizado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
